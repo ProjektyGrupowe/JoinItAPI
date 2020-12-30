@@ -43,8 +43,10 @@ public class Company {
     @Column(name = "pic")
     private byte[] pic;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
-    private Set<Posting> postings;
+
+    public Company(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -110,13 +112,6 @@ public class Company {
         this.pic = pic;
     }
 
-    public Set<Posting> getPostings() {
-        return postings;
-    }
-
-    public void setPostings(Set<Posting> postings) {
-        this.postings = postings;
-    }
 
     @Override
     public String toString() {
@@ -129,7 +124,6 @@ public class Company {
                 ", password='" + password + '\'' +
                 ", imageType='" + imageType + '\'' +
                 ", pic=" + Arrays.toString(pic) +
-                ", postings=" + postings +
                 '}';
     }
 }

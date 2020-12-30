@@ -29,7 +29,7 @@ public class CompanyController {
 
     @GetMapping("/{email}")
     public Company getUserByEmail(@PathVariable String email){
-        return companyDao.findByEmail(email);
+        return companyDao.findFirstByEmail(email);
     }
 
     @PutMapping("/{email}")
@@ -40,12 +40,17 @@ public class CompanyController {
     @PutMapping("/{email}/photo")
     public Company updateCompanyImage(@PathVariable String email, @RequestParam("newCompany") MultipartFile file) throws IOException {
 
-        Company finalCompany = companyDao.findByEmail(email);
+        Company finalCompany = companyDao.findFirstByEmail(email);
 
         finalCompany.setImageType(file.getContentType());
         finalCompany.setPic(file.getBytes());
 
         return companyDao.save(finalCompany);
+    }
+
+    @DeleteMapping("/{email}")
+    public void deleteCompanyUser(@PathVariable String email){
+        companyDao.delete(companyDao.findFirstByEmail(email));
     }
 
 
