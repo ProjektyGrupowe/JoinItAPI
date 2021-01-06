@@ -1,12 +1,10 @@
 package com.joinit.model;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "posting")
@@ -27,10 +25,6 @@ public class Posting {
 
     @Column(name = "position_name")
     private String positionName;
-
-//    @ManyToMany
-//    @JoinColumn(name = "requirement", nullable = false)
-//    private List<Requirement> requirement;
 
     @Column(name = "requirement")
     private String requirement;

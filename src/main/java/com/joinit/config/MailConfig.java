@@ -1,7 +1,5 @@
 package com.joinit.config;
 
-//import java.util.Properties;
-
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

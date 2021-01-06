@@ -1,13 +1,10 @@
 package com.joinit.model;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Email {
 
     private String email;
     private String firstAndLastName;
     private String introduction;
-    private MultipartFile file;
 
     public Email() {
     }
@@ -36,11 +33,4 @@ public class Email {
         this.introduction = introduction;
     }
 
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
 }

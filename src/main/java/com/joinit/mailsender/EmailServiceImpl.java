@@ -3,18 +3,14 @@ package com.joinit.mailsender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.MailException;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
-import java.io.InputStream;
 
 @Component
 public class EmailServiceImpl implements EmailService {
@@ -36,13 +32,12 @@ public class EmailServiceImpl implements EmailService {
 
     public void sendMessageWithAttachment(
             String to, String subject, String text, String pathToAttachment) throws MessagingException {
-        // ...
 
         MimeMessage message = emailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setFrom("noreply@baeldung.com");
+        helper.setFrom("joinit2020@gmail.com");
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(text);
@@ -52,6 +47,5 @@ public class EmailServiceImpl implements EmailService {
         helper.addAttachment(file.getFilename(), file);
 
         emailSender.send(message);
-        // ...
     }
 }

@@ -53,5 +53,4 @@ public class CompanyController {
         companyDao.delete(companyDao.findFirstByEmail(email));
     }
 
-
 }

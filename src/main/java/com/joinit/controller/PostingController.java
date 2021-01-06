@@ -54,5 +54,4 @@ public class PostingController {
 
         return postingDao.save(finalPosting);
     }
-
 }

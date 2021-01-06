@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Set;
 
 @Entity
 @Table(name = "company")

@@ -1,15 +1,12 @@
 package com.joinit.controller;
 
 import com.joinit.mailsender.EmailServiceImpl;
-import com.joinit.model.Email;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,6 +29,7 @@ public class MailSenderController {
 
         Path currentRelativePath = Paths.get("");
         String workingDirectory = currentRelativePath.toAbsolutePath().toString();
+
         //String filePath = "D:\\Projects\\JoinIt\\PDF\\cv.pdf";
         String filePath = workingDirectory + "\\cv.pdf";
 
@@ -42,15 +40,16 @@ public class MailSenderController {
         emailService.sendMessageWithAttachment(to, firsAndLastName + " applied for " + positionName,"Hello, "+ "\n\n" + firsAndLastName +
                 " have just applied for " + positionName +" in your company through our JoinIt website." + "\n\n" +
                 "You can find his/her CV in attachment." + "\n\n" +
+                "Below you can find candidate's introduction." + "\n\n" +
+                firsAndLastName + " introduction:" + "\n" + introduction + "\n\n" +
                 "Thank you for using our website!" + "\n\n" +
                 "Best Regards," + "\n" + "JoinIt Team", filePath);
 
         emailService.sendMessageWithAttachment(appliedEmail, "You applied for " + positionName, "Hi " + firsAndLastName + "," +
-                "\n\n" + "You've just applied for" + positionName + " in " + localization + " on JoinIt to " + companyName
+                "\n\n" + "You've just applied for " + positionName + " in " + localization + " on JoinIt to " + companyName
                 + "\n\n" + "We keep our fingers crossed for you!" + "\n\n" + "Best Regards," + "\n" + "JoinIt Team", filePath);
 
         Path path = Paths.get(filePath);
         Files.delete(path);
     }
-
 }
