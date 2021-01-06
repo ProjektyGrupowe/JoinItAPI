@@ -30,12 +30,14 @@ public class MailSenderController {
                              @Param("localization") String localization, @Param("positionName") String positionName,
                              @RequestParam("pdfFile") MultipartFile email) throws IOException, MessagingException {
 
-        String filePath = "D:\\Projects\\JoinIt\\PDF\\cv.pdf";
+        Path currentRelativePath = Paths.get("");
+        String workingDirectory = currentRelativePath.toAbsolutePath().toString();
+        //String filePath = "D:\\Projects\\JoinIt\\PDF\\cv.pdf";
+        String filePath = workingDirectory + "\\cv.pdf";
 
         try (FileOutputStream stream = new FileOutputStream(filePath)) {
             stream.write(email.getBytes());
         }
-
 
         emailService.sendMessageWithAttachment(to, firsAndLastName + " applied for " + positionName,"Hello, "+ "\n\n" + firsAndLastName +
                 " have just applied for " + positionName +" in your company through our JoinIt website." + "\n\n" +
