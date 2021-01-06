@@ -18,4 +18,6 @@ public interface PostingDao extends JpaRepository<Posting, Long> {
 
     Page<Posting> findByLocalizationContaining(@RequestParam("localization") String localization, Pageable pageable);
 
+    Page<Posting> findByEmail(@RequestParam("email") String email, Pageable pageable);
+
 }
