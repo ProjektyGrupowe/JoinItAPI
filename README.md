@@ -12,7 +12,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This project is backend part of a bigger project: Job board for IT industry. It was built with DDD design pattern and written in Java with Spring Boot.
+This project is backend part of a bigger project: Job board for IT industry. It was written in Java with Spring Boot and uses Azure SQL as a database.
 
 ### Built With
 * Java
