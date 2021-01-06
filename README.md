@@ -45,4 +45,4 @@ git clone https://github.com/ProjektyGrupowe/JoinItAPI.git
 For usage examples please refer to the [Live Documentation in API](https://joinitwebsite.azurewebsites.net/swagger-ui/)
 
 ## WWW
-https://workflowapi2020.azurewebsites.net/
+https://joinitwebsite.azurewebsites.net/
